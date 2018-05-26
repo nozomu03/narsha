@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+     최초작성일: 05/26/2018
+     최초작성자: 배수구
+     목적: 적 클래스
+     */
+
 public class anenmy : MonoBehaviour {
 
-    private double health;
-    private double movSpeed;
-    private double atkSpeed;
-    private int enermyX;
-    private int enermyY;
+    private float health;
+    private float movSpeed;
+    private float atkSpeed;
+    private float enermyX;
+    private float enermyY;
 
 
     //체력관련 함수
-    public double Health
+    public float Health
     {
         get
         {
@@ -27,7 +33,7 @@ public class anenmy : MonoBehaviour {
 
 
     //이동속도관련 함수
-    public double MovSpeed
+    public float MovSpeed
     {
         get
         {
@@ -41,7 +47,7 @@ public class anenmy : MonoBehaviour {
 
 
     //공격속도관련 함수
-    public double AtkSpeed
+    public float AtkSpeed
     {
         get
         {
@@ -55,7 +61,7 @@ public class anenmy : MonoBehaviour {
 
 
     //적 x좌표
-    public int EnermyX
+    public float EnermyX
     {
         get
         {
@@ -70,7 +76,7 @@ public class anenmy : MonoBehaviour {
 
 
     //적 Y좌표
-    public int EnermyY
+    public float EnermyY
     {
         get
         {
