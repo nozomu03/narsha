@@ -8,13 +8,12 @@ public class Bullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+
+    }
 
     void Update()
     {
         float moveX = moveSpeed * Time.deltaTime;
-
-        transform.Translate(moveX, 0, 0);
+        this.transform.Translate(new Vector3(moveX, 0, 0));
     }
 }

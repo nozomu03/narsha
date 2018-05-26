@@ -24,6 +24,8 @@ ExportedObj/
 *.pdb
 *.opendb
 
+*.meta
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
@@ -34,3 +36,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Sprite.meta
+config.meta~HEAD_0
+HEAD.meta~HEAD
