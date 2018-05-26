@@ -36,3 +36,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Sprite.meta
+config.meta~HEAD_0
+HEAD.meta~HEAD
