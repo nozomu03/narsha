@@ -14,19 +14,20 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public int RollPower = 1;//구르는 힘
     public int health = 100;//체력
-    public int stemina = 100;//스테미나
-    public float grande_throw_pow = 0.5f;//던지는 힘
+    public float stemina = 100;//스테미나
+    public float grande_throw_pow = 0.5f;//던지는 힘(아직 안씀)
     public int countspecial = 0;
     public bool canshoot = true;
     public GameObject bulletprefab1;//1번무기 스프라이트
     public GameObject bulletprefab2;//2번무기 스프라이트
     public GameObject bulletprefab3;//3번무기 스프라이드 
 
-    public GameObject laserPrefab; //발사할 레이저를 저장합니다.
-    public bool canShoot = true; //레이저를 쏠 수 있는 상태인지 검사합니다.
-    const float shootDelay = 0.5f; //레이저를 쏘는 주기를 정해줍니다.
+    public GameObject laserPrefab; //발사할 레이저를 저장합니다.(미사용)
+    public bool canShoot = true; //레이저를 쏠 수 있는 상태인지 검사합니다.(미사용)
+    const float shootDelay = 0.5f; //레이저를 쏘는 주기를 정해줍니다.(미사용)
     float shootTimer = 0; //시간을 잴 타이머를 만들어줍니다.
 
+    float Timer = 0;
     public int Change = 1;//웨폰 스위칭 
     public int Specialmeter = 0;//특수무기 게이지
     private float groundCheckRadius = 1.2f;
@@ -46,17 +47,25 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("정상적 실행 완료. 중력적용 완료");
         rb2D = GetComponent<Rigidbody2D>();
+        SpriteRenderer render = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
     
     void Update()
     {
-
+      
         Vector2 moveDir = new Vector2(Input.GetAxisRaw("Horizontal") * Speed, rb2D.velocity.y);
         rb2D.velocity = moveDir;
 
+       
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayers);//User 중심점이 ground태그 오브젝트와 충돌시 true값
 
-
+        
+        if (stemina <100)
+        {
+            stemina += (Time.deltaTime);
+        } 
+        Debug.Log("현재 스테미나: " + stemina);
         if (Input.GetKeyDown(KeyCode.C))
         {
             Dodge();
@@ -93,8 +102,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.M))
         {
             Debug.Log("공격명령!");
-            //Attack();
-            
+            Attack();
         }
 
        else if (Input.GetKeyDown(KeyCode.N))
@@ -102,21 +110,29 @@ public class PlayerController : MonoBehaviour
             Debug.Log("스페셜어택 명령!");
         }
 
-
     }
+
+   
+
     void Dodge()//회피기동
     {
         Debug.Log("회피기동 함수 도착");
+
         if (isGrounded == true)//땅에 있을때만 회피작동
         {
-            
-            gameObject.transform.Translate(Vector2.left * Time.deltaTime * Speed * RollPower);//left향으로 속도 * 구르는 힘 * 델타타임으로 위치 변경
+            if (stemina >= 30)
+            {
+                stemina -= 30;
+                gameObject.transform.Translate(Vector2.left * Time.deltaTime * Speed * RollPower);//left향으로 속도 * 구르는 힘 * 델타타임으로 위치 변경
+
+            }
         }
     }
 
     void SpecialAttack()//스페셜어택
     {
        
+
         
     }
 
