@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameContrroler1 : MonoBehaviour {
-    
-    enum State
+        
+ /*   enum State
     {
         Ready, Play
     }
     
     
     public Text SteminaLable;
-
-    void Start
+    */
+    void Start()
     {
-        Ready();
+    //    Ready();
     }
 }

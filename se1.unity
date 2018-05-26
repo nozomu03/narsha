@@ -1292,6 +1292,7 @@ GameObject:
   - component: {fileID: 1012109784}
   - component: {fileID: 1012109780}
   - component: {fileID: 1012109781}
+  - component: {fileID: 1012109783}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1323,7 +1324,6 @@ MonoBehaviour:
   stemina: 100
   grande_throw_pow: 0.5
   countspecial: 0
-  canshoot: 1
   bulletprefab1: {fileID: 1489623272396988, guid: 98c7f2fee1aa45848a7f81a556a55220,
     type: 2}
   bulletprefab2: {fileID: 1317502496928066, guid: df37d0e469ea0fe43a56d49bdbd52157,
@@ -1373,6 +1373,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 2, z: 0}
+--- !u!70 &1012109783
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1012109779}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.258333, y: 2.033686}
+  m_Size: {x: 1.6451006, y: 6.9014325}
+  m_Direction: 0
 --- !u!50 &1012109784
 Rigidbody2D:
   serializedVersion: 4
