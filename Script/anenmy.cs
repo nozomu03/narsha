@@ -10,84 +10,15 @@ using UnityEngine;
 
 public class anenmy : MonoBehaviour {
 
-    private float health;
-    private float movSpeed;
-    private float atkSpeed;
-    private float enermyX;
-    private float enermyY;
-
-
-    //체력관련 함수
-    public float Health
-    {
-        get
-        {
-            return health;
-        }
-        set
-        {
-            health = value;
-        }
+    public float health;
+    public float movSpeed;
+    public float atkSpeed;
+    
+    public void Start() {
+        Chase();
     }
 
-
-
-    //이동속도관련 함수
-    public float MovSpeed
-    {
-        get
-        {
-            return movSpeed;
-        }
-        set
-        {
-            movSpeed = value;
-        }
-    }
-
-
-    //공격속도관련 함수
-    public float AtkSpeed
-    {
-        get
-        {
-            return atkSpeed;
-        }
-        set
-        {
-            atkSpeed = value;
-        }
-    }
-
-
-    //적 x좌표
-    public float EnermyX
-    {
-        get
-        {
-            return enermyX;
-        }
-
-        set
-        {
-            enermyX = value;
-        }
-    }
-
-
-    //적 Y좌표
-    public float EnermyY
-    {
-        get
-        {
-            return enermyY;
-        }
-
-        set
-        {
-            enermyY = value;
-        }
-    }
+    
 
 
     //공격
@@ -100,7 +31,7 @@ public class anenmy : MonoBehaviour {
 
 
     //적쫒기
-    public int Chaese() {
+    public int Chase() {
 
 
         return 1;
