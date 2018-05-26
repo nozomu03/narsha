@@ -10,6 +10,8 @@ public class anenmy : MonoBehaviour {
     private int enermyX;
     private int enermyY;
 
+
+    //체력관련 함수
     public double Health
     {
         get
@@ -22,6 +24,9 @@ public class anenmy : MonoBehaviour {
         }
     }
 
+
+
+    //이동속도관련 함수
     public double MovSpeed
     {
         get
@@ -34,6 +39,8 @@ public class anenmy : MonoBehaviour {
         }
     }
 
+
+    //공격속도관련 함수
     public double AtkSpeed
     {
         get
@@ -46,6 +53,8 @@ public class anenmy : MonoBehaviour {
         }
     }
 
+
+    //적 x좌표
     public int EnermyX
     {
         get
@@ -59,6 +68,23 @@ public class anenmy : MonoBehaviour {
         }
     }
 
+
+    //적 Y좌표
+    public int EnermyY
+    {
+        get
+        {
+            return enermyY;
+        }
+
+        set
+        {
+            enermyY = value;
+        }
+    }
+
+
+    //공격
     public int Attack() {
 
 
@@ -66,6 +92,8 @@ public class anenmy : MonoBehaviour {
 
     }
 
+
+    //적쫒기
     public int Chaese() {
 
 
