@@ -15,7 +15,7 @@ public class anenmy : MonoBehaviour {
     public float atkSpeed;
     
     public void Start() {
-        Chase();
+        
     }
 
     
@@ -24,18 +24,12 @@ public class anenmy : MonoBehaviour {
     //공격
     public int Attack() {
 
-
+        Debug.Log("함수호출");
         return 1;
 
     }
 
 
-    //적쫒기
-    public int Chase() {
 
-
-        return 1;
-
-    }
 
 }
