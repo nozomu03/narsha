@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
 public class anenmy : MonoBehaviour {
 
     private double health;
@@ -101,4 +102,30 @@ public class anenmy : MonoBehaviour {
 
     }
 
+=======
+/*
+     최초작성일: 05/26/2018
+     최초작성자: 배수구
+     목적: 적 클래스
+     */
+
+public class anenmy : MonoBehaviour {
+
+    public float health;
+    public float movSpeed;
+    public float atkSpeed;
+    
+    public void Start() {
+        
+    }
+
+    
+
+
+    
+
+
+
+
+>>>>>>> d8b8e1b54e3a25939dac1a24dfcf9c0df0180292
 }

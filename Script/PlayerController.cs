@@ -22,8 +22,11 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded = false;//지금 땅에있음?
     public bool isJumping = false;//지금 점프중임?
     public LayerMask groundLayers;
+   // public LayerMask DeathBoxLayers;
 
     public Transform groundCheck;
+   // public Transform deathcheck;
+
     public int RollPower = 1;//구르는 힘
     public int health = 100;//체력
     public float stemina = 100;//스테미나
@@ -42,7 +45,12 @@ public class PlayerController : MonoBehaviour
     float Timer = 0;
     public int Change = 1;//웨폰 스위칭 
     public int Specialmeter = 0;//특수무기 게이지
-    private float groundCheckRadius = 1.2f;
+    private float groundCheckRadius = 2.0f;
+   // private float deathBoxCheck = 2.0f;
+
+    private Animator anim;
+
+    public bool isDead = false;
 
     void timer()
     {
@@ -115,11 +123,12 @@ public class PlayerController : MonoBehaviour
         Debug.Log("정상적 실행 완료. 중력적용 완료");
         rb2D = GetComponent<Rigidbody2D>();
         SpriteRenderer render = gameObject.GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-
+        Move();
         if (temp == true)
             time += Time.deltaTime;
 
@@ -129,13 +138,21 @@ public class PlayerController : MonoBehaviour
         timer();
         timer2();
 
-        Vector2 moveDir = new Vector2(Input.GetAxisRaw("Horizontal") * Speed, rb2D.velocity.y);
-        rb2D.velocity = moveDir;
+        /*Vector2 moveDir = new Vector2(Input.GetAxisRaw("Horizontal") * Speed, rb2D.velocity.y);
+        rb2D.velocity = moveDir;*/
 
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Debug.Log("현재 스테미나: " + stemina);
+        }
 
-
+       // isDead = Physics2D.OverlapCircle(deathcheck.position, deathBoxCheck, DeathBoxLayers);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayers);//User 중심점이 ground태그 오브젝트와 충돌시 true값
-
+        //isDead = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, DeathBoxLayers);
+        if (isDead == true)
+        {
+            Debug.Log("님 D짐 ㅅㄱ");
+        }
 
         if (stemina < 100)
         {
@@ -191,8 +208,42 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("스페셜어택 명령!");
         }
+        
+    
+            
+        
+
+       /* else if (Input.GetKeyDown(KeyCode.DownArrow))//아래 내리면 더 빨리 낙하할까?
+        {
+            if (isJumping == true)
+            {
+                Debug.Log("하강파워 가동");
+                rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
+                rb2D.AddForce(new Vector2(0, jumpForce));
+            }
+        }*/
 
     }
+   
+    void Move()
+    {
+        Vector3 moveVelocity = Vector3.zero;
+
+        if (Input.GetAxisRaw("Horizontal")<0)
+        {
+            moveVelocity = Vector3.left;
+            
+        }
+     
+        else if(Input.GetAxisRaw("Horizontal") >0)
+        {
+            moveVelocity = Vector3.right;
+        }
+        transform.position += moveVelocity * Speed * Time.deltaTime;
+
+        
+    }
+
 
 
 
@@ -206,16 +257,23 @@ public class PlayerController : MonoBehaviour
             {
                 stemina -= 30;
                 gameObject.transform.Translate(Vector2.left * Time.deltaTime * Speed * RollPower);//left향으로 속도 * 구르는 힘 * 델타타임으로 위치 변경
-
+                Debug.Log("현재 스테미나: " + stemina);
             }
         }
     }
 
     void SpecialAttack()//스페셜어택
     {
+        if (countspecial==100)
+        {
+            Debug.Log("스페셜");
 
-
-
+        }
+        else
+        {
+            Debug.Log("");
+        }
+    
     }
 
     void ShootingTest()
