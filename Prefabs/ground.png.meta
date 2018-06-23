@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Sprite/movingTest.jpg.meta
 guid: c06f64aa743eb7344955ac16d60864de
+=======
+guid: f222544d367833645bf718484e7e7f85
+>>>>>>> 4fb9156b859e360e6546e39a227cec879a07cebd:Prefabs/ground.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -73,7 +77,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Assets/Sprite/movingTest.jpg.meta
     spriteID: e6e0486f87c10d54baf93e455c71a663
+=======
+    spriteID: a26625250663d8e40abd542387c6b262
+>>>>>>> 4fb9156b859e360e6546e39a227cec879a07cebd:Prefabs/ground.png.meta
     vertices: []
     indices: 
     edges: []
